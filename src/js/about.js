@@ -1,4 +1,3 @@
-
 import Accordion from 'accordion-js';
 // import 'accordion-js/dist/accordion.min.css';
 
@@ -9,10 +8,15 @@ import { Mousewheel } from 'swiper/modules';
 
 const accordeonList = document.querySelector('.accordeon-list');
 
-const accordion = new Accordion(accordeonList, {
+new Accordion(accordeonList, {
   duration: 600,
   showMultiple: true,
   openOnInit: [0],
+
+  elementClass: 'ac',
+  triggerClass: 'accordeon-title',
+  panelClass: 'ac-panel',
+  activeClass: 'is-active-faq',
 });
 
 const accordionItems = document.querySelectorAll('.accordeon-title');
@@ -20,9 +24,9 @@ const accordionItems = document.querySelectorAll('.accordeon-title');
 accordionItems.forEach(item => {
   item.addEventListener('click', function () {
     const arrow = item.querySelector('.title-icon');
-    const description = item.nextElementSibling;
+    // const description = item.nextElementSibling;
     arrow.classList.toggle('active-is');
-    description.classList.toggle('hidden');
+    // description.classList.toggle('hidden');
   });
 });
 
@@ -68,4 +72,3 @@ swiperEl.addEventListener('keydown', function (event) {
     swiperAbout.slidePrev();
   }
 });
-
